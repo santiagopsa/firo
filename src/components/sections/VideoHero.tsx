@@ -16,7 +16,7 @@ export default function VideoHero() {
         "[data-counter]",
         { innerText: 0 },
         {
-          innerText: 2000,
+          innerText: 2464,
           duration: 1.2,
           ease: "power2.out",
           snap: { innerText: 1 },
@@ -72,8 +72,8 @@ export default function VideoHero() {
             </h1>
 
             <p className="mt-5 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
-              Basic units start around $30k. FIRO operates deployment so owners can target
-              around $2k net monthly in the base case, with full utilization and payout visibility.
+              Managed units typically start around $39k. Returns are shown as scenario targets,
+              not guarantees, and include a dedicated operator on every active robot day.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -81,31 +81,31 @@ export default function VideoHero() {
                 href="#roi"
                 className="rounded-xl bg-firo-blue px-5 py-3 text-sm font-semibold shadow-soft hover:opacity-95"
               >
-                Start simulation
+                Run investor ROI simulation
               </a>
               <a
                 href="#join"
                 className="rounded-xl bg-white/10 px-5 py-3 text-sm font-semibold text-white hover:bg-white/15"
               >
-                Join the pilot
+                Join the investor waitlist
               </a>
             </div>
 
             <div className="mt-10 grid max-w-lg grid-cols-3 gap-4 rounded-2xl bg-white/10 p-5 backdrop-blur">
               <Metric
-                label="Est. monthly"
+                label="Estimated monthly revenue"
                 value={
                   <span>
                     $<span data-counter>0</span>
                   </span>
                 }
               />
-              <Metric label="Asset price" value="From $30k" />
-              <Metric label="Uptime" value="99.1%" />
+              <Metric label="Target payback" value="~16 months" />
+              <Metric label="Target use" value="10+ days/mo" />
             </div>
 
             <p className="mt-3 text-xs text-white/55">
-              Season 0: Events -&gt; Season 1: Venues -&gt; Season 2: Hospitality.
+              For qualified investors. Scenario-based projections, not guarantees.
             </p>
           </div>
         </div>

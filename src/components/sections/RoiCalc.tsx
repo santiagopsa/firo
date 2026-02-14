@@ -4,15 +4,31 @@ import { useMemo, useState } from "react";
 import Container from "../ui/Container";
 
 export default function RoiCalc() {
-  const [days, setDays] = useState(8);
-  const [rate, setRate] = useState(320);
-  const [ops, setOps] = useState(0.22);
+  const assetPrice = 39000;
+  const [days, setDays] = useState(10);
+  const [rate, setRate] = useState(650);
+  const [operatorDay, setOperatorDay] = useState(220);
+  const [otherOps, setOtherOps] = useState(0.12);
+  const investorShare = 0.7;
 
   const result = useMemo(() => {
     const gross = days * rate;
-    const net = gross * (1 - ops);
-    return { gross, net };
-  }, [days, rate, ops]);
+    const operator = days * operatorDay;
+    const other = gross * otherOps;
+    const net = gross - operator - other;
+    const investor = Math.max(0, net * investorShare);
+    const annualYield = assetPrice > 0 ? (investor * 12) / assetPrice : 0;
+    return { gross, operator, other, net, investor, annualYield };
+  }, [days, rate, operatorDay, otherOps]);
+
+  const scenarios = useMemo(
+    () => [
+      { name: "Conservative", days: 10, rate: 500, operatorDay: 220, otherOps: 0.12 },
+      { name: "Base", days: 10, rate: 650, operatorDay: 220, otherOps: 0.12 },
+      { name: "Upside", days: 10, rate: 800, operatorDay: 220, otherOps: 0.12 },
+    ],
+    []
+  );
 
   return (
     <section id="roi" className="bg-white py-24">
@@ -24,46 +40,75 @@ export default function RoiCalc() {
               Model your return with visible assumptions.
             </h2>
             <p className="mt-4 text-firo-muted">
-              Base case targets around $2,000 net monthly for a unit priced near $30,000.
-              Final numbers depend on utilization, event mix, and operational requirements.
+              Formula: Gross = days x day rate. Net = Gross - operator cost - other ops.
+              Investor payout shown below assumes a 70% share of net and is not guaranteed.
             </p>
 
             <div className="mt-8 space-y-6 rounded-2xl border border-firo-line bg-firo-bg p-6">
-              <Slider label="Days per month in use" value={days} min={4} max={22} onChange={setDays} />
-              <Slider label="Avg. rate per day (USD)" value={rate} min={200} max={900} onChange={setRate} />
+              <Slider label="Days per month in use" value={days} min={4} max={24} onChange={setDays} />
+              <Slider label="Client rate per day (USD)" value={rate} min={300} max={1500} onChange={setRate} />
               <Slider
-                label="Ops cost (fraction)"
-                value={Math.round(ops * 100)}
-                min={10}
-                max={40}
-                onChange={(v) => setOps(v / 100)}
+                label="Operator cost per active day (USD)"
+                value={operatorDay}
+                min={120}
+                max={400}
+                onChange={setOperatorDay}
+              />
+              <Slider
+                label="Other ops (percent of gross)"
+                value={Math.round(otherOps * 100)}
+                min={5}
+                max={30}
+                onChange={(v) => setOtherOps(v / 100)}
                 suffix="%"
               />
+            </div>
+
+            <div className="mt-5 grid gap-3 md:grid-cols-3">
+              {scenarios.map((s) => {
+                const gross = s.days * s.rate;
+                const operator = s.days * s.operatorDay;
+                const other = gross * s.otherOps;
+                const net = gross - operator - other;
+                const investor = Math.max(0, net * investorShare);
+                return (
+                  <div key={s.name} className="rounded-2xl border border-firo-line bg-white p-4">
+                    <div className="text-xs font-semibold text-firo-muted">{s.name}</div>
+                    <div className="mt-1 text-lg font-semibold">${Math.round(investor).toLocaleString()}</div>
+                    <div className="mt-1 text-xs text-firo-muted">
+                      Investor payout at {s.days}d x ${s.rate}/d
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
           <div className="rounded-3xl bg-firo-navy p-8 text-white shadow-soft">
-            <div className="text-sm text-white/60">Estimated monthly</div>
+            <div className="text-sm text-white/60">Estimated investor monthly</div>
             <div className="mt-2 text-4xl font-semibold tracking-tight">
-              ${Math.round(result.net).toLocaleString()}
+              ${Math.round(result.investor).toLocaleString()}
             </div>
             <div className="mt-2 text-white/60">
-              Gross: ${Math.round(result.gross).toLocaleString()} • Ops: {Math.round(ops * 100)}%
+              Gross: ${Math.round(result.gross).toLocaleString()} • Operator: ${Math.round(result.operator).toLocaleString()} • Other ops: ${Math.round(result.other).toLocaleString()} • Net: ${Math.round(result.net).toLocaleString()}
+            </div>
+            <div className="mt-1 text-white/60">
+              Target annual yield: {(result.annualYield * 100).toFixed(1)}% (assuming ${assetPrice.toLocaleString()} unit cost)
             </div>
 
             <div className="mt-8 grid grid-cols-2 gap-4">
               <Info title="Utilization driver" desc="Events, brand activations, venue contracts." />
-              <Info title="Operations included" desc="Scheduling, remote ops, maintenance workflows." />
+              <Info title="Operations included" desc="Dedicated operator, scheduling, maintenance workflows." />
               <Info title="Risk controls" desc="Geofencing, supervised ops, privacy policy." />
               <Info title="Payout visibility" desc="Owner dashboard with logs + monthly statements." />
             </div>
 
             <a
               id="quote"
-              href="#"
+              href="#join"
               className="mt-8 inline-flex w-full items-center justify-center rounded-xl bg-firo-blue px-5 py-3 text-sm font-semibold hover:opacity-95"
             >
-              Talk to FIRO
+              Book investor call
             </a>
           </div>
         </div>

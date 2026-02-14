@@ -7,12 +7,12 @@ export default function Join() {
         <div className="rounded-3xl border border-firo-line bg-firo-bg p-8 shadow-soft md:p-10">
           <div className="grid gap-8 md:grid-cols-2 md:items-center">
             <div>
-              <div className="text-sm font-semibold text-firo-blue">Join the guild</div>
+              <div className="text-sm font-semibold text-firo-blue">Investor action</div>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
-                Choose your role.
+                Invest in the robotics economy.
               </h2>
               <p className="mt-3 text-firo-muted">
-                Owners earn yield. Events & venues get a premium experience. Same platform.
+                Join the investor waitlist to receive scenario assumptions, payout modeling, and onboarding details.
               </p>
             </div>
 
@@ -21,9 +21,9 @@ export default function Join() {
                 href="mailto:hello@firo.ai?subject=FIRO%20Owner%20Waitlist"
                 className="rounded-2xl bg-white p-6 shadow-soft hover:opacity-95"
               >
-                <div className="text-lg font-semibold">I’m an Owner</div>
+                <div className="text-lg font-semibold">Join the Investor Waitlist</div>
                 <div className="mt-1 text-firo-muted">
-                  I want to own/finance a robot and earn payouts.
+                  I want investor documents, expected payout scenarios, and next-step onboarding.
                 </div>
               </a>
 
@@ -31,16 +31,16 @@ export default function Join() {
                 href="mailto:hello@firo.ai?subject=FIRO%20Event%20Quote"
                 className="rounded-2xl bg-firo-navy p-6 text-white shadow-soft hover:opacity-95"
               >
-                <div className="text-lg font-semibold">I need a robot for an event</div>
+                <div className="text-lg font-semibold">I’m a deployment partner</div>
                 <div className="mt-1 text-white/70">
-                  I want availability and a quote for a date + location.
+                  I can place robots and want to discuss demand, contracts, and scheduling.
                 </div>
               </a>
             </div>
           </div>
 
           <div className="mt-6 text-xs text-firo-muted">
-            MVP note: swap mailto for a Tally form once you want tracking + routing.
+            For qualified investors. Projections shown are scenario-based and not guarantees.
           </div>
         </div>
       </Container>

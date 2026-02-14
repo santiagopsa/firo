@@ -9,17 +9,17 @@ export default function Rewards() {
           <div>
             <div className="text-sm font-semibold text-firo-blue">Rewards</div>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
-              Track the run. Claim the payout.
+              Investor returns with transparent operations.
             </h2>
             <p className="mt-4 text-white/70">
-              Base case targets around $2,000 net monthly on entry units priced from about $30k.
-              Every deployment logs utilization and uptime so payouts are measurable and auditable.
+              Pricing is modeled in scenarios with one operator per active robot day. Base case
+              assumes 10 days/month and focuses on healthy investor margins from real deployments.
             </p>
 
             <div className="mt-8 grid gap-3 md:grid-cols-3">
-              <Loot title="Utilization" value="52%" />
-              <Loot title="Uptime" value="99.2%" />
-              <Loot title="Net payout (base)" value="$2,000" />
+              <Loot title="Target annual yield" value="~76%" />
+              <Loot title="Operator model" value="1 per active day" />
+              <Loot title="Investor payout (base)" value="$2,464" />
             </div>
           </div>
 
