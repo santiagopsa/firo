@@ -55,14 +55,13 @@ export default function HeroParallax() {
   return (
     <section
       ref={root}
-      className="relative min-h-[100vh] overflow-hidden bg-firo-navy text-white"
+      className="relative min-h-[100vh] overflow-hidden text-white bg-gradient-to-b from-firo-navy via-[#0B1430] to-[#070B14]"
     >
       <div ref={layerBg} className="absolute inset-0 opacity-80">
         <Image
           src="/assets/backgrounds/mesh.png"
           alt=""
           fill
-          priority
           className="object-cover"
         />
       </div>
