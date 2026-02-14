@@ -51,6 +51,11 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  icons: {
+    icon: ["/favicon.png", "/icon.svg"],
+    shortcut: ["/favicon.png", "/icon.svg"],
+    apple: ["/favicon.png", "/icon.svg"],
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
