@@ -4,71 +4,71 @@ import Container from "@/components/ui/Container";
 import { getFaqPageSchema } from "@/lib/seoSchemas";
 
 const thesisPoints = [
-  "La robotica humanoide ya salio de la fase demo y entro en despliegues productivos.",
-  "La demanda por continuidad operativa crece en eventos, venues y servicios presenciales.",
-  "El modelo activo + operacion permite medir utilizacion, uptime y pagos con transparencia.",
+  "Humanoid robotics has moved from demos into real commercial deployments.",
+  "Demand for operational continuity is rising across events, venues, and service environments.",
+  "The asset + operations model enables transparent utilization, uptime, and payout tracking.",
 ];
 
 const economics = [
-  { label: "Ticket por unidad", value: "$44,000" },
-  { label: "Escenario base (inversionista)", value: "$2,464 / mes" },
-  { label: "Rendimiento anual objetivo", value: "~67%" },
-  { label: "Uso objetivo", value: "10+ dias / mes" },
+  { label: "Unit entry price", value: "$44,000" },
+  { label: "Base scenario (investor)", value: "$2,464 / month" },
+  { label: "Target annual yield", value: "~67%" },
+  { label: "Target utilization", value: "10+ days / month" },
 ];
 
 const risks = [
   {
-    risk: "Demanda comercial insuficiente",
-    mitigation: "Pipeline por vertical, acuerdos con partners y foco inicial en casos de alta rotacion.",
+    risk: "Commercial demand risk",
+    mitigation: "Vertical-specific pipeline, partner agreements, and initial focus on high-frequency use cases.",
   },
   {
-    risk: "Variabilidad operativa",
-    mitigation: "Operador dedicado por dia activo, SOPs y mantenimiento preventivo.",
+    risk: "Operational variability",
+    mitigation: "Dedicated operator per active day, standard operating playbooks, and preventive maintenance.",
   },
   {
-    risk: "Riesgo tecnologico",
-    mitigation: "Monitoreo remoto, telemetria y planes de reemplazo/backup por unidad.",
+    risk: "Technology reliability risk",
+    mitigation: "Remote monitoring, telemetry, and replacement/backup plans by unit.",
   },
   {
-    risk: "Cumplimiento y reputacion",
-    mitigation: "Geofencing, operacion supervisada, politicas de privacidad y protocolos de seguridad.",
+    risk: "Compliance and reputation risk",
+    mitigation: "Geofencing, supervised operation, privacy policy, and safety protocols.",
   },
 ];
 
 const competitors = [
   {
-    model: "Renta puntual de robot",
-    strengths: "Rapida para activaciones aisladas",
-    limits: "Baja continuidad de datos y poca visibilidad para inversionista",
+    model: "One-off robot rental",
+    strengths: "Fast to launch for isolated activations",
+    limits: "Low data continuity and limited investor visibility",
   },
   {
-    model: "Integrador tradicional",
-    strengths: "Experiencia tecnica y customizacion",
-    limits: "Suele priorizar proyecto, no rendimiento recurrente de activo",
+    model: "Traditional systems integrator",
+    strengths: "Technical depth and customization",
+    limits: "Usually project-focused, not recurring asset yield-focused",
   },
   {
-    model: "FIRO (activo + operacion)",
-    strengths: "Modelo orientado a cashflow con tracking operativo y de pagos",
-    limits: "Requiere disciplina operativa para escalar con calidad",
+    model: "FIRO (asset + operations)",
+    strengths: "Cashflow-oriented model with operational and payout tracking",
+    limits: "Requires strong operational discipline to scale with quality",
   },
 ];
 
 const faqs = [
   {
-    q: "Como se calcula el pago al inversionista?",
-    a: "Partimos de ingreso bruto mensual, restamos operador y costos operativos, y sobre el neto aplicamos el porcentaje del inversionista.",
+    q: "How is investor payout calculated?",
+    a: "We start with monthly gross revenue, subtract operator and operating costs, and then apply the investor share to net results.",
   },
   {
-    q: "Que pasa si baja la utilizacion?",
-    a: "El payout baja proporcionalmente. Por eso mostramos escenarios (conservador/base/optimista) y no promesas fijas.",
+    q: "What happens if utilization drops?",
+    a: "Payout declines proportionally. That is why we present scenario ranges (conservative/base/upside) rather than fixed promises.",
   },
   {
-    q: "Quien ejecuta la operacion diaria?",
-    a: "FIRO gestiona despliegue, operador, agenda y control operativo en cada jornada activa.",
+    q: "Who runs day-to-day operations?",
+    a: "FIRO manages deployment, operator staffing, scheduling, and operating control across active days.",
   },
   {
-    q: "Este retorno es garantizado?",
-    a: "No. Son proyecciones basadas en escenarios y supuestos operativos visibles.",
+    q: "Are returns guaranteed?",
+    a: "No. These are scenario-based projections with transparent operating assumptions.",
   },
 ];
 
@@ -114,13 +114,13 @@ export default function InvestorsPage() {
       <section className="bg-gradient-to-b from-firo-navy via-[#0B1430] to-[#070B14] pb-20 pt-28 text-white">
         <Container>
           <div className="max-w-3xl">
-            <div className="text-sm font-semibold text-firo-blue">Inversionistas</div>
+            <div className="text-sm font-semibold text-firo-blue">Investors</div>
             <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-6xl">
-              Resumen de inversion FIRO.
+              FIRO investor brief.
             </h1>
             <p className="mt-5 text-white/75 md:text-lg">
-              Pagina de referencia para evaluar tesis, unit economics, riesgos, mapa competitivo
-              y contacto directo con el equipo.
+              Reference page for evaluating thesis, unit economics, risk controls,
+              competitive map, and direct investor contact.
             </p>
           </div>
         </Container>
@@ -129,7 +129,7 @@ export default function InvestorsPage() {
       <section id="thesis" className="bg-white py-20">
         <Container>
           <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-            Tesis: por que este mercado ahora
+            Thesis: why this market now
           </h2>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {thesisPoints.map((point) => (
@@ -144,10 +144,10 @@ export default function InvestorsPage() {
       <section id="roi" className="bg-firo-bg py-20">
         <Container>
           <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-            Modelos y unit economics
+            Model and unit economics
           </h2>
           <p className="mt-4 text-firo-muted">
-            Escenario base con operacion gestionada y enfoque en neto mensual para inversionista.
+            Base scenario with managed operations and investor-pocketed monthly focus.
           </p>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {economics.map((item) => (
@@ -158,7 +158,7 @@ export default function InvestorsPage() {
             ))}
           </div>
           <div className="mt-4 text-sm text-firo-muted">
-            Nota: proyecciones por escenarios, no garantias.
+            Note: scenario-based projections, not guarantees.
           </div>
         </Container>
       </section>
@@ -166,7 +166,7 @@ export default function InvestorsPage() {
       <section className="bg-white py-20">
         <Container>
           <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-            Riesgos y mitigaciones
+            Risks and mitigations
           </h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {risks.map((item) => (
@@ -182,18 +182,18 @@ export default function InvestorsPage() {
       <section className="bg-firo-bg py-20">
         <Container>
           <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-            Mapa competitivo
+            Competitive map
           </h2>
           <p className="mt-4 text-firo-muted">
-            Comparacion neutral de modelos actuales en el mercado.
+            Neutral comparison of current market approaches.
           </p>
           <div className="mt-8 overflow-x-auto rounded-2xl border border-firo-line bg-white">
             <table className="w-full min-w-[720px] text-left">
               <thead className="border-b border-firo-line bg-firo-bg">
                 <tr>
-                  <th className="px-5 py-4 text-sm font-semibold">Modelo</th>
-                  <th className="px-5 py-4 text-sm font-semibold">Fortaleza</th>
-                  <th className="px-5 py-4 text-sm font-semibold">Limitacion</th>
+                  <th className="px-5 py-4 text-sm font-semibold">Model</th>
+                  <th className="px-5 py-4 text-sm font-semibold">Strength</th>
+                  <th className="px-5 py-4 text-sm font-semibold">Limitation</th>
                 </tr>
               </thead>
               <tbody>
@@ -212,7 +212,7 @@ export default function InvestorsPage() {
 
       <section className="bg-white py-20">
         <Container>
-          <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">FAQ inversionista</h2>
+          <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Investor FAQ</h2>
           <div className="mt-8 space-y-4">
             {faqs.map((item) => (
               <div key={item.q} className="rounded-2xl border border-firo-line bg-firo-bg p-6">
@@ -228,10 +228,10 @@ export default function InvestorsPage() {
         <Container>
           <div className="rounded-3xl border border-firo-line bg-white p-8 shadow-soft md:p-10">
             <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-              Contacto para inversionistas
+              Investor contact
             </h2>
             <p className="mt-3 text-firo-muted">
-              Deja tus datos y te enviamos el resumen completo con supuestos y pasos de onboarding.
+              Share your details and we will send the investor brief with assumptions and next steps.
             </p>
 
             <form
@@ -248,32 +248,32 @@ export default function InvestorsPage() {
                 name="name"
                 required
                 className="rounded-xl border border-firo-line bg-white px-4 py-3 text-sm outline-none focus:border-firo-blue"
-                placeholder="Nombre"
+                placeholder="Name"
               />
               <input
                 name="email"
                 type="email"
                 required
                 className="rounded-xl border border-firo-line bg-white px-4 py-3 text-sm outline-none focus:border-firo-blue"
-                placeholder="Correo electronico"
+                placeholder="Email"
               />
               <input
                 name="phone"
                 required
                 className="rounded-xl border border-firo-line bg-white px-4 py-3 text-sm outline-none focus:border-firo-blue"
-                placeholder="Telefono"
+                placeholder="Phone"
               />
 
               <button
                 type="submit"
                 className="md:col-span-3 rounded-xl bg-firo-blue px-5 py-3 text-sm font-semibold text-white hover:opacity-95"
               >
-                Solicitar informacion para inversionistas
+                Request investor information
               </button>
             </form>
 
             <div className="mt-4 text-xs text-firo-muted">
-              Proyecciones basadas en escenarios. No constituyen garantia de rendimiento.
+              Scenario-based projections. Not a guarantee of returns.
             </div>
           </div>
         </Container>
