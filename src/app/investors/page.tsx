@@ -90,7 +90,7 @@ export default function InvestorsPage() {
         </Container>
       </section>
 
-      <section className="bg-white py-20">
+      <section id="thesis" className="bg-white py-20">
         <Container>
           <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
             Tesis: por que este mercado ahora
@@ -105,7 +105,7 @@ export default function InvestorsPage() {
         </Container>
       </section>
 
-      <section className="bg-firo-bg py-20">
+      <section id="roi" className="bg-firo-bg py-20">
         <Container>
           <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
             Modelos y unit economics
@@ -199,6 +199,7 @@ export default function InvestorsPage() {
             </p>
 
             <form
+              id="quote"
               action="https://formsubmit.co/santiagopsa@gmail.com"
               method="POST"
               className="mt-8 grid gap-4 md:grid-cols-3"

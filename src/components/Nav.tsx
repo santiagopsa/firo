@@ -1,11 +1,23 @@
+"use client";
+
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 type NavProps = {
   locale?: "en" | "es";
 };
 
 export default function Nav({ locale = "en" }: NavProps) {
-  const isEs = locale === "es";
+  const pathname = usePathname();
+  const pathIsEs = pathname === "/es" || pathname.startsWith("/es/");
+  const isEs = locale === "es" || pathIsEs;
+
+  const switchHref = pathIsEs
+    ? pathname.replace(/^\/es/, "") || "/"
+    : pathname === "/"
+      ? "/es"
+      : `/es${pathname}`;
+  const investorsHref = isEs ? "/es/investors" : "/investors";
 
   return (
     <div className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-firo-navy/70 text-white backdrop-blur-xl">
@@ -22,7 +34,7 @@ export default function Nav({ locale = "en" }: NavProps) {
         </a>
 
         <nav className="hidden items-center gap-7 text-sm text-white/70 md:flex">
-          <a href="/investors" className="hover:text-white">{isEs ? "Inversionistas" : "Investors"}</a>
+          <a href={investorsHref} className="hover:text-white">{isEs ? "Inversionistas" : "Investors"}</a>
           <a href="#thesis" className="hover:text-white">{isEs ? "Tesis" : "Thesis"}</a>
           <a href="#roi" className="hover:text-white">ROI</a>
           <a href="#quote" className="hover:text-white">{isEs ? "Contacto" : "Contact"}</a>
@@ -30,7 +42,7 @@ export default function Nav({ locale = "en" }: NavProps) {
 
         <div className="flex items-center gap-2">
           <a
-            href={isEs ? "/" : "/es"}
+            href={switchHref}
             className="rounded-lg px-2 py-1 text-xs text-white/70 hover:text-white"
           >
             {isEs ? "EN" : "ES"}
