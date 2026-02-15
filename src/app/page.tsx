@@ -9,16 +9,16 @@ import RoiCalc from "@/components/sections/RoiCalc";
 import Join from "@/components/sections/Join";
 
 export const metadata: Metadata = {
-  title: "FIRO | Invest in Robotic Assets with Managed Operations",
+  title: "FIRO | Lease-backed investment in managed robotic operations",
   description:
-    "Invest in FIRO robotic assets with transparent utilization, operator-led deployment, and scenario-based investor payouts.",
+    "Invest in FIRO leasing-backed robotic operations with transparent utilization, operator-led deployment, and scenario-based investor payouts.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "FIRO | Invest in Robotic Assets with Managed Operations",
+    title: "FIRO | Lease-backed investment in managed robotic operations",
     description:
-      "Own a managed robotic unit, track operations, and model investor returns with transparent assumptions.",
+      "Fund monthly robot leasing, let FIRO run operations, and track investor returns with transparent assumptions.",
     url: "/",
     images: [
       {

@@ -3,15 +3,15 @@ import Nav from "@/components/Nav";
 import Container from "@/components/ui/Container";
 
 export const metadata: Metadata = {
-  title: "Sobre FIRO | Tesis, equipo y modelo operativo",
+  title: "Sobre FIRO | Tesis y modelo operativo con leasing",
   description:
-    "Conoce que es FIRO, para quien es, que problema resuelve, como funciona el modelo y la vision de crecimiento en activos roboticos.",
+    "Conoce que es FIRO, para quien es, que problema resuelve, como funciona el modelo con leasing y la vision de crecimiento en activos roboticos.",
   alternates: {
     canonical: "/es/about",
   },
   openGraph: {
     locale: "es_ES",
-    title: "Sobre FIRO | Tesis, equipo y modelo operativo",
+    title: "Sobre FIRO | Tesis y modelo operativo con leasing",
     description:
       "Resumen de FIRO para inversionistas y entusiastas: tesis de mercado, operacion y contacto.",
     url: "/es/about",
@@ -36,10 +36,10 @@ export default function AboutPageEs() {
           <div className="max-w-3xl">
             <div className="text-sm font-semibold text-firo-blue">Sobre FIRO</div>
             <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-6xl">
-              Robotica humanoide estructurada para propiedad real.
+              Robotica humanoide estructurada para cashflow con leasing.
             </h1>
             <p className="mt-5 text-white/75 md:text-lg">
-              FIRO convierte robots humanoides en activos operativos invertibles:
+              FIRO convierte robots humanoides en activos operativos con leasing:
               despliegue claro, metricas transparentes y pagos por escenarios.
             </p>
           </div>
@@ -59,8 +59,8 @@ export default function AboutPageEs() {
             <div className="rounded-2xl border border-firo-line bg-firo-bg p-6">
               <h2 className="text-2xl font-semibold tracking-tight">Problema que resolvemos</h2>
               <p className="mt-3 text-firo-muted">
-                La demanda existe, pero propiedad y operacion estan fragmentadas.
-                FIRO integra despliegue, operacion, control de riesgo y visibilidad de pagos.
+                La demanda existe, pero el financiamiento y la operacion estan fragmentados.
+                FIRO integra estructura de leasing, despliegue, operacion, control de riesgo y visibilidad de pagos.
               </p>
             </div>
           </div>
@@ -74,9 +74,9 @@ export default function AboutPageEs() {
           </h2>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             <div className="rounded-2xl border border-firo-line bg-white p-6 shadow-soft">
-              <div className="text-sm font-semibold text-firo-blue">1. Entrada</div>
+              <div className="text-sm font-semibold text-firo-blue">1. Financiar leasing</div>
               <p className="mt-2 text-firo-muted">
-                El inversionista entra por el modelo de unidad gestionada FIRO.
+                El inversionista entra financiando una estructura de leasing mensual.
               </p>
             </div>
             <div className="rounded-2xl border border-firo-line bg-white p-6 shadow-soft">
@@ -88,7 +88,7 @@ export default function AboutPageEs() {
             <div className="rounded-2xl border border-firo-line bg-white p-6 shadow-soft">
               <div className="text-sm font-semibold text-firo-blue">3. Seguimiento y pago</div>
               <p className="mt-2 text-firo-muted">
-                Se registran utilizacion, uptime y economia para calcular pagos.
+                Se registran bruto, neto operativo, cobertura de leasing y reparto mensual.
               </p>
             </div>
           </div>
@@ -106,8 +106,8 @@ export default function AboutPageEs() {
           </p>
           <h3 className="mt-10 text-2xl font-semibold tracking-tight">Tesis / vision</h3>
           <p className="mt-3 max-w-3xl text-firo-muted">
-            La robotica sera infraestructura operativa. Nuestra tesis es que propiedad temprana
-            + operacion disciplinada construye cashflow escalable y transparente.
+            La robotica sera infraestructura operativa. Nuestra tesis es que el financiamiento
+            por leasing + operacion disciplinada construye cashflow escalable y transparente.
           </p>
         </Container>
       </section>

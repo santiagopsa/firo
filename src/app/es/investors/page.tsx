@@ -4,17 +4,17 @@ import Container from "@/components/ui/Container";
 import { getFaqPageSchema } from "@/lib/seoSchemas";
 
 export const metadata: Metadata = {
-  title: "FIRO Inversionistas | Tesis, unit economics, riesgos y FAQ",
+  title: "FIRO Inversionistas | Tesis de leasing, unit economics, riesgos y FAQ",
   description:
-    "Resumen para inversionistas de FIRO: tesis de mercado, unit economics, mitigaciones de riesgo, mapa competitivo y contacto.",
+    "Resumen para inversionistas de FIRO: tesis de leasing, unit economics, mitigaciones de riesgo, mapa competitivo y contacto.",
   alternates: {
     canonical: "/es/investors",
   },
   openGraph: {
     locale: "es_ES",
-    title: "FIRO Inversionistas | Tesis, unit economics, riesgos y FAQ",
+    title: "FIRO Inversionistas | Tesis de leasing, unit economics, riesgos y FAQ",
     description:
-      "Modelo de inversion FIRO con supuestos transparentes, riesgos y formulario de contacto.",
+      "Modelo de inversion FIRO con enfoque leasing, supuestos transparentes, riesgos y formulario de contacto.",
     url: "/es/investors",
     images: [
       {
@@ -29,21 +29,25 @@ export const metadata: Metadata = {
 
 const thesisPoints = [
   "La robotica humanoide ya salio de la fase demo y entro en despliegues productivos.",
-  "La demanda por continuidad operativa crece en eventos, venues y servicios presenciales.",
-  "El modelo activo + operacion permite medir utilizacion, uptime y pagos con transparencia.",
+  "El leasing reduce la exposicion directa a la depreciacion acelerada del hardware.",
+  "FIRO opera de punta a punta para que el inversionista se enfoque en financiar y cobrar neto mensual.",
 ];
 
 const economics = [
-  { label: "Ticket por unidad", value: "$44,000" },
-  { label: "Escenario base (inversionista)", value: "$2,464 / mes" },
-  { label: "Rendimiento anual objetivo", value: "~67%" },
-  { label: "Uso objetivo", value: "10+ dias / mes" },
+  { label: "Leasing mensual (base)", value: "$1,500" },
+  { label: "Escenario base (neto inversionista)", value: "$1,414 / mes" },
+  { label: "Plazo minimo de contrato", value: "24 meses" },
+  { label: "Ventana de permanencia dura", value: "12 meses" },
 ];
 
 const risks = [
   {
     risk: "Demanda comercial insuficiente",
     mitigation: "Pipeline por vertical, acuerdos con partners y foco inicial en casos de alta rotacion.",
+  },
+  {
+    risk: "Riesgo de obligacion de leasing",
+    mitigation: "Exigimos contrato minimo de 24 meses, monitoreamos cobertura de leasing mensualmente y priorizamos contratos que sostengan umbrales base.",
   },
   {
     risk: "Variabilidad operativa",
@@ -71,28 +75,36 @@ const competitors = [
     limits: "Suele priorizar proyecto, no rendimiento recurrente de activo",
   },
   {
-    model: "FIRO (activo + operacion)",
-    strengths: "Modelo orientado a cashflow con tracking operativo y de pagos",
-    limits: "Requiere disciplina operativa para escalar con calidad",
+    model: "FIRO (leasing + operacion)",
+    strengths: "Modelo leasing + operacion orientado a cashflow con tracking operativo y de pagos",
+    limits: "Requiere disciplina operativa para mantener cobertura de leasing y consistencia de payouts",
   },
 ];
 
 const faqs = [
   {
     q: "Como se calcula el pago al inversionista?",
-    a: "Partimos de ingreso bruto mensual, restamos operador y costos operativos, y sobre el neto aplicamos el porcentaje del inversionista.",
+    a: "Partimos del ingreso bruto mensual, restamos operador y costos operativos, luego restamos el leasing mensual. Sobre ese neto distribuible aplicamos el porcentaje del inversionista.",
+  },
+  {
+    q: "Por que leasing y no compra directa del robot?",
+    a: "El leasing reduce exposicion a depreciacion de corto plazo y mantiene la opcion de capturar flujo operativo con menor riesgo estructural.",
   },
   {
     q: "Que pasa si baja la utilizacion?",
-    a: "El payout baja proporcionalmente. Por eso mostramos escenarios (conservador/base/optimista) y no promesas fijas.",
+    a: "El payout baja porque cae el neto operativo y la cobertura del leasing. Por eso mostramos escenarios conservador/base/optimista y no promesas fijas.",
+  },
+  {
+    q: "Existe plazo minimo para el inversionista?",
+    a: "Si. Exigimos contrato minimo de 24 meses con permanencia dura de 12 meses para sostener obligaciones de leasing y predictibilidad operativa.",
   },
   {
     q: "Quien ejecuta la operacion diaria?",
-    a: "FIRO gestiona despliegue, operador, agenda y control operativo en cada jornada activa.",
+    a: "FIRO gestiona despliegue, operador, agenda, mantenimiento y control operativo en cada jornada activa.",
   },
   {
     q: "Este retorno es garantizado?",
-    a: "No. Son proyecciones basadas en escenarios y supuestos operativos visibles.",
+    a: "No. Son proyecciones por escenarios con supuestos visibles.",
   },
 ];
 
@@ -120,7 +132,7 @@ export default function InvestorsPageEs() {
               Resumen de inversion FIRO.
             </h1>
             <p className="mt-5 text-white/75 md:text-lg">
-              Pagina de referencia para evaluar tesis, unit economics, riesgos, mapa competitivo
+              Pagina de referencia para evaluar la tesis leasing-first de FIRO, unit economics, riesgos, mapa competitivo
               y contacto directo con el equipo.
             </p>
           </div>
@@ -148,7 +160,7 @@ export default function InvestorsPageEs() {
             Modelos y unit economics
           </h2>
           <p className="mt-4 text-firo-muted">
-            Escenario base con operacion gestionada y enfoque en neto mensual para inversionista.
+            Escenario base donde el inversionista financia leasing mensual y FIRO gestiona operacion.
           </p>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {economics.map((item) => (

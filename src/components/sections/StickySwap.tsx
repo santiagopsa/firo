@@ -5,13 +5,13 @@ import Container from "../ui/Container";
 import { ensureGsap } from "@/lib/gsap";
 
 const cards = [
-  { title: "Asset model", desc: "Structured ownership, clear utilization, measurable uptime." },
+  { title: "Leasing model", desc: "Structured leasing, clear utilization, measurable uptime." },
   { title: "Demand placement", desc: "We place robots where budgets already exist: events first." },
   { title: "Operations moat", desc: "Maintenance, remote ops, compliance and scheduling." },
   { title: "Capability unlocks", desc: "More tasks over time via software + playbooks." },
 ];
 const cardsEs = [
-  { title: "Modelo de activo", desc: "Propiedad estructurada, utilizacion clara y uptime medible." },
+  { title: "Modelo de leasing", desc: "Leasing estructurado, utilizacion clara y uptime medible." },
   { title: "Colocacion de demanda", desc: "Ubicamos robots donde ya existe presupuesto: primero eventos." },
   { title: "Moat operativo", desc: "Mantenimiento, operacion remota, cumplimiento y agenda." },
   { title: "Desbloqueos de capacidad", desc: "Mas tareas con el tiempo via software y playbooks." },

@@ -9,29 +9,35 @@ type RoiCalcProps = {
 
 export default function RoiCalc({ locale = "en" }: RoiCalcProps) {
   const isEs = locale === "es";
-  const assetPrice = 44000;
+  const contractMonths = 24;
+  const hardCommitMonths = 12;
+  const reserveMonths = 2;
   const [days, setDays] = useState(10);
   const [rate, setRate] = useState(650);
   const [operatorDay, setOperatorDay] = useState(220);
   const [otherOps, setOtherOps] = useState(0.12);
+  const [leaseMonthly, setLeaseMonthly] = useState(1500);
   const investorShare = 0.7;
 
   const result = useMemo(() => {
     const gross = days * rate;
     const operator = days * operatorDay;
     const other = gross * otherOps;
-    const net = gross - operator - other;
-    const investor = Math.max(0, net * investorShare);
-    const firoFee = Math.max(0, net - investor);
-    const annualYield = assetPrice > 0 ? (investor * 12) / assetPrice : 0;
-    return { gross, operator, other, net, investor, firoFee, annualYield };
-  }, [days, rate, operatorDay, otherOps]);
+    const operatingNet = gross - operator - other;
+    const distributable = operatingNet - leaseMonthly;
+    const investor = Math.max(0, distributable * investorShare);
+    const firoFee = Math.max(0, distributable - investor);
+    const leaseCoverage = leaseMonthly > 0 ? operatingNet / leaseMonthly : 0;
+    const reserveRequired = leaseMonthly * reserveMonths;
+    const investorTermTotal = investor * contractMonths;
+    return { gross, operator, other, operatingNet, distributable, investor, firoFee, leaseCoverage, reserveRequired, investorTermTotal };
+  }, [days, rate, operatorDay, otherOps, leaseMonthly]);
 
   const scenarios = useMemo(
     () => [
-      { name: isEs ? "Conservador" : "Conservative", days: 10, rate: 500, operatorDay: 220, otherOps: 0.12 },
-      { name: isEs ? "Base" : "Base", days: 10, rate: 650, operatorDay: 220, otherOps: 0.12 },
-      { name: isEs ? "Optimista" : "Upside", days: 10, rate: 800, operatorDay: 220, otherOps: 0.12 },
+      { name: isEs ? "Conservador" : "Conservative", days: 8, rate: 500, operatorDay: 220, otherOps: 0.12, leaseMonthly: 1500 },
+      { name: isEs ? "Base" : "Base", days: 10, rate: 650, operatorDay: 220, otherOps: 0.12, leaseMonthly: 1500 },
+      { name: isEs ? "Optimista" : "Upside", days: 12, rate: 800, operatorDay: 240, otherOps: 0.1, leaseMonthly: 2500 },
     ],
     [isEs]
   );
@@ -47,8 +53,8 @@ export default function RoiCalc({ locale = "en" }: RoiCalcProps) {
             </h2>
             <p className="mt-4 text-firo-muted">
               {isEs
-                ? "Formula: Bruto = dias x tarifa diaria. Neto = Bruto - costo de operador - otros costos operativos. El monto neto para inversionista asume una participacion del 70% del neto y no es una garantia."
-                : "Formula: Gross = days x day rate. Net = Gross - operator cost - other ops. Investor pocketed amount shown below assumes a 70% share of net and is not guaranteed."}
+                ? "Formula leasing: Bruto = dias x tarifa diaria. Neto operativo = Bruto - operador - otros ops. Distribuible = Neto operativo - leasing mensual. El inversionista recibe 70% del distribuible. Contrato minimo: 24 meses."
+                : "Leasing formula: Gross = days x day rate. Operating net = Gross - operator - other ops. Distributable = Operating net - monthly lease. Investor receives 70% of distributable. Minimum term: 24 months."}
             </p>
 
             <div className="mt-8 space-y-6 rounded-2xl border border-firo-line bg-firo-bg p-6">
@@ -69,6 +75,13 @@ export default function RoiCalc({ locale = "en" }: RoiCalcProps) {
                 onChange={(v) => setOtherOps(v / 100)}
                 suffix="%"
               />
+              <Slider
+                label={isEs ? "Leasing mensual (USD)" : "Monthly lease payment (USD)"}
+                value={leaseMonthly}
+                min={600}
+                max={4000}
+                onChange={setLeaseMonthly}
+              />
             </div>
 
             <div className="mt-5 grid gap-3 md:grid-cols-3">
@@ -76,14 +89,17 @@ export default function RoiCalc({ locale = "en" }: RoiCalcProps) {
                 const gross = s.days * s.rate;
                 const operator = s.days * s.operatorDay;
                 const other = gross * s.otherOps;
-                const net = gross - operator - other;
-                const investor = Math.max(0, net * investorShare);
+                const operatingNet = gross - operator - other;
+                const distributable = operatingNet - s.leaseMonthly;
+                const investor = Math.max(0, distributable * investorShare);
                 return (
                   <div key={s.name} className="rounded-2xl border border-firo-line bg-white p-4">
                     <div className="text-xs font-semibold text-firo-muted">{s.name}</div>
                     <div className="mt-1 text-lg font-semibold">${Math.round(investor).toLocaleString()}</div>
                     <div className="mt-1 text-xs text-firo-muted">
-                      {isEs ? `Neto inversionista con ${s.days}d x $${s.rate}/d` : `Investor pocketed at ${s.days}d x $${s.rate}/d`}
+                      {isEs
+                        ? `Neto inversionista con ${s.days}d x $${s.rate}/d y leasing $${s.leaseMonthly}`
+                        : `Investor net at ${s.days}d x $${s.rate}/d with $${s.leaseMonthly} lease`}
                     </div>
                   </div>
                 );
@@ -98,8 +114,13 @@ export default function RoiCalc({ locale = "en" }: RoiCalcProps) {
             </div>
             <div className="mt-2 text-white/60">
               {isEs
-                ? `Bruto: $${Math.round(result.gross).toLocaleString()} • Operador: $${Math.round(result.operator).toLocaleString()} • Otros ops: $${Math.round(result.other).toLocaleString()} • Neto: $${Math.round(result.net).toLocaleString()}`
-                : `Gross: $${Math.round(result.gross).toLocaleString()} • Operator: $${Math.round(result.operator).toLocaleString()} • Other ops: $${Math.round(result.other).toLocaleString()} • Net: $${Math.round(result.net).toLocaleString()}`}
+                ? `Bruto: $${Math.round(result.gross).toLocaleString()} • Operador: $${Math.round(result.operator).toLocaleString()} • Otros ops: $${Math.round(result.other).toLocaleString()} • Neto operativo: $${Math.round(result.operatingNet).toLocaleString()}`
+                : `Gross: $${Math.round(result.gross).toLocaleString()} • Operator: $${Math.round(result.operator).toLocaleString()} • Other ops: $${Math.round(result.other).toLocaleString()} • Operating net: $${Math.round(result.operatingNet).toLocaleString()}`}
+            </div>
+            <div className="mt-1 text-white/60">
+              {isEs
+                ? `Leasing mensual: $${Math.round(leaseMonthly).toLocaleString()} • Distribuible: $${Math.round(result.distributable).toLocaleString()}`
+                : `Monthly lease: $${Math.round(leaseMonthly).toLocaleString()} • Distributable: $${Math.round(result.distributable).toLocaleString()}`}
             </div>
             <div className="mt-1 text-white/60">
               {isEs
@@ -108,8 +129,23 @@ export default function RoiCalc({ locale = "en" }: RoiCalcProps) {
             </div>
             <div className="mt-1 text-white/60">
               {isEs
-                ? `Rendimiento anual objetivo: ${(result.annualYield * 100).toFixed(1)}% (asumiendo costo unitario de $${assetPrice.toLocaleString()})`
-                : `Target annual yield: ${(result.annualYield * 100).toFixed(1)}% (assuming $${assetPrice.toLocaleString()} unit cost)`}
+                ? `Cobertura leasing: ${result.leaseCoverage.toFixed(2)}x (neto operativo / leasing)`
+                : `Lease coverage: ${result.leaseCoverage.toFixed(2)}x (operating net / lease)`}
+            </div>
+            <div className="mt-1 text-white/60">
+              {isEs
+                ? `Contrato minimo: ${contractMonths} meses • Permanencia dura: ${hardCommitMonths} meses`
+                : `Minimum contract: ${contractMonths} months • Hard commitment: ${hardCommitMonths} months`}
+            </div>
+            <div className="mt-1 text-white/60">
+              {isEs
+                ? `Reserva operativa sugerida (${reserveMonths} meses): $${Math.round(result.reserveRequired).toLocaleString()}`
+                : `Suggested operating reserve (${reserveMonths} months): $${Math.round(result.reserveRequired).toLocaleString()}`}
+            </div>
+            <div className="mt-1 text-white/60">
+              {isEs
+                ? `Neto proyectado al inversionista en ${contractMonths} meses: $${Math.round(result.investorTermTotal).toLocaleString()}`
+                : `Projected investor net over ${contractMonths} months: $${Math.round(result.investorTermTotal).toLocaleString()}`}
             </div>
 
             <div className="mt-8 grid grid-cols-2 gap-4">
@@ -127,7 +163,7 @@ export default function RoiCalc({ locale = "en" }: RoiCalcProps) {
               />
               <Info
                 title={isEs ? "Visibilidad de pagos" : "Payout visibility"}
-                desc={isEs ? "Dashboard del propietario con logs y reportes mensuales." : "Owner dashboard with logs + monthly statements."}
+                desc={isEs ? "Dashboard del inversionista con logs y reportes mensuales." : "Investor dashboard with logs + monthly statements."}
               />
             </div>
 

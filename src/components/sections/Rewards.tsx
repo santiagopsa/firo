@@ -14,18 +14,18 @@ export default function Rewards({ locale = "en" }: RewardsProps) {
           <div>
             <div className="text-sm font-semibold text-firo-blue">{isEs ? "Retornos" : "Rewards"}</div>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
-              {isEs ? "Retornos para inversionistas con operacion transparente." : "Investor returns with transparent operations."}
+              {isEs ? "Retornos para inversionistas bajo modelo leasing." : "Investor returns under a leasing-first model."}
             </h2>
             <p className="mt-4 text-white/70">
               {isEs
-                ? "El modelo se calcula por escenarios con un operador por dia activo del robot. El caso base asume 10 dias/mes y se enfoca en margenes saludables para inversionistas."
-                : "Pricing is modeled in scenarios with one operator per active robot day. Base case assumes 10 days/month and focuses on healthy investor margins from real deployments."}
+                ? "En lugar de comprar el robot, el inversionista financia un leasing mensual y FIRO opera para generar ingresos. El escenario base asume 10 dias/mes, operador dedicado y costos operativos visibles."
+                : "Instead of buying the robot, the investor funds a monthly lease and FIRO runs operations to generate income. Base case assumes 10 days/month, a dedicated operator, and transparent operating costs."}
             </p>
 
             <div className="mt-8 grid gap-3 md:grid-cols-3">
-              <Loot title={isEs ? "Rendimiento anual objetivo" : "Target annual yield"} value="~67%" />
-              <Loot title={isEs ? "Modelo operativo" : "Operator model"} value={isEs ? "1 por dia activo" : "1 per active day"} />
-              <Loot title={isEs ? "Pago inversionista (base)" : "Investor payout (base)"} value="$2,464" />
+              <Loot title={isEs ? "Leasing mensual (base)" : "Monthly lease (base)"} value="$1,500" />
+              <Loot title={isEs ? "Contrato minimo" : "Minimum contract"} value={isEs ? "24 meses" : "24 months"} />
+              <Loot title={isEs ? "Neto inversionista (base)" : "Investor net (base)"} value="$1,414" />
             </div>
           </div>
 

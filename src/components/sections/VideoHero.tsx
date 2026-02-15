@@ -21,7 +21,7 @@ export default function VideoHero({ locale = "en" }: VideoHeroProps) {
         "[data-counter]",
         { innerText: 0 },
         {
-          innerText: 2464,
+          innerText: 1414,
           duration: 1.2,
           ease: "power2.out",
           snap: { innerText: 1 },
@@ -108,8 +108,8 @@ export default function VideoHero({ locale = "en" }: VideoHeroProps) {
 
             <p className="mt-5 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
               {isEs
-                ? "Las unidades gestionadas comienzan alrededor de $44k. Los retornos se muestran como escenarios objetivo, no como garantías, e incluyen un operador dedicado por cada día activo del robot."
-                : "Managed units typically start around $44k. Returns are shown as scenario targets, not guarantees, and include a dedicated operator on every active robot day."}
+                ? "Modelo leasing-first: el inversionista financia el leasing mensual y FIRO opera el robot para rentabilizarlo. Exigimos contrato minimo de 24 meses para asegurar predictibilidad operativa."
+                : "Leasing-first model: the investor funds monthly robot leasing while FIRO deploys and monetizes operations. A 24-month minimum contract is required for operational predictability."}
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -135,14 +135,14 @@ export default function VideoHero({ locale = "en" }: VideoHeroProps) {
 
             <div className="mt-10 grid max-w-lg grid-cols-3 gap-4 rounded-2xl bg-white/10 p-5 backdrop-blur">
               <Metric
-                label={isEs ? "Ingreso mensual estimado" : "Estimated monthly revenue"}
+                label={isEs ? "Neto mensual inversionista" : "Estimated investor net monthly"}
                 value={
                   <span>
                     $<span data-counter>0</span>
                   </span>
                 }
               />
-              <Metric label={isEs ? "Retorno objetivo" : "Target payback"} value={isEs ? "~16 meses" : "~16 months"} />
+              <Metric label={isEs ? "Contrato minimo" : "Minimum contract"} value={isEs ? "24 meses" : "24 months"} />
               <Metric label={isEs ? "Uso objetivo" : "Target use"} value={isEs ? "10+ dias/mes" : "10+ days/mo"} />
             </div>
 

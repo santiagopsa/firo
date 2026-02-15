@@ -5,21 +5,25 @@ import { getFaqPageSchema } from "@/lib/seoSchemas";
 
 const thesisPoints = [
   "Humanoid robotics has moved from demos into real commercial deployments.",
-  "Demand for operational continuity is rising across events, venues, and service environments.",
-  "The asset + operations model enables transparent utilization, uptime, and payout tracking.",
+  "Leasing reduces direct exposure to fast hardware depreciation while keeping cashflow upside.",
+  "FIRO runs operations end-to-end, so investors focus on financing and transparent monthly payouts.",
 ];
 
 const economics = [
-  { label: "Unit entry price", value: "$44,000" },
-  { label: "Base scenario (investor)", value: "$2,464 / month" },
-  { label: "Target annual yield", value: "~67%" },
-  { label: "Target utilization", value: "10+ days / month" },
+  { label: "Monthly lease (base)", value: "$1,500" },
+  { label: "Base scenario (investor net)", value: "$1,414 / month" },
+  { label: "Minimum contract term", value: "24 months" },
+  { label: "Hard commitment window", value: "12 months" },
 ];
 
 const risks = [
   {
     risk: "Commercial demand risk",
     mitigation: "Vertical-specific pipeline, partner agreements, and initial focus on high-frequency use cases.",
+  },
+  {
+    risk: "Lease obligation risk",
+    mitigation: "We enforce a minimum 24-month contract, track lease coverage monthly, and prioritize contracts that keep coverage above base thresholds.",
   },
   {
     risk: "Operational variability",
@@ -47,42 +51,50 @@ const competitors = [
     limits: "Usually project-focused, not recurring asset yield-focused",
   },
   {
-    model: "FIRO (asset + operations)",
-    strengths: "Cashflow-oriented model with operational and payout tracking",
-    limits: "Requires strong operational discipline to scale with quality",
+    model: "FIRO (leasing + operations)",
+    strengths: "Depreciation-aware financing model with operational and payout tracking",
+    limits: "Requires disciplined execution to preserve lease coverage and payout consistency",
   },
 ];
 
 const faqs = [
   {
     q: "How is investor payout calculated?",
-    a: "We start with monthly gross revenue, subtract operator and operating costs, and then apply the investor share to net results.",
+    a: "We start with gross revenue, subtract operator and operating costs, then subtract the monthly lease. The investor receives their share of the remaining distributable net.",
+  },
+  {
+    q: "Why leasing instead of buying the robot outright?",
+    a: "Leasing helps reduce direct exposure to short-term robot depreciation while still allowing participation in operational cashflow.",
   },
   {
     q: "What happens if utilization drops?",
-    a: "Payout declines proportionally. That is why we present scenario ranges (conservative/base/upside) rather than fixed promises.",
+    a: "Investor payout declines because operating net and lease coverage drop. That is why we present conservative/base/upside scenarios instead of fixed promises.",
+  },
+  {
+    q: "Is there a minimum investor term?",
+    a: "Yes. We require a 24-month minimum contract with a 12-month hard commitment to support leasing obligations and operational predictability.",
   },
   {
     q: "Who runs day-to-day operations?",
-    a: "FIRO manages deployment, operator staffing, scheduling, and operating control across active days.",
+    a: "FIRO manages deployment, operator staffing, scheduling, maintenance workflows, and operating controls across active days.",
   },
   {
     q: "Are returns guaranteed?",
-    a: "No. These are scenario-based projections with transparent operating assumptions.",
+    a: "No. These are scenario-based projections with transparent assumptions.",
   },
 ];
 
 export const metadata: Metadata = {
-  title: "FIRO Investors | Thesis, unit economics, risks, and FAQ",
+  title: "FIRO Investors | Leasing thesis, unit economics, risks, and FAQ",
   description:
-    "Investor brief covering FIRO market thesis, unit economics, risk mitigation, competitive map, and direct investor contact.",
+    "Investor brief covering FIRO leasing thesis, unit economics, risk mitigation, competitive map, and direct investor contact.",
   alternates: {
     canonical: "/investors",
   },
   openGraph: {
-    title: "FIRO Investors | Thesis, unit economics, risks, and FAQ",
+    title: "FIRO Investors | Leasing thesis, unit economics, risks, and FAQ",
     description:
-      "Explore FIRO investor model with transparent assumptions, risk controls, and contact form.",
+      "Explore FIRO leasing-first investor model with transparent assumptions, risk controls, and contact form.",
     url: "/investors",
     images: [
       {
@@ -119,7 +131,7 @@ export default function InvestorsPage() {
               FIRO investor brief.
             </h1>
             <p className="mt-5 text-white/75 md:text-lg">
-              Reference page for evaluating thesis, unit economics, risk controls,
+              Reference page for evaluating FIRO's leasing-first thesis, unit economics, risk controls,
               competitive map, and direct investor contact.
             </p>
           </div>
@@ -147,7 +159,7 @@ export default function InvestorsPage() {
             Model and unit economics
           </h2>
           <p className="mt-4 text-firo-muted">
-            Base scenario with managed operations and investor-pocketed monthly focus.
+            Base scenario where the investor funds lease payments and FIRO manages operations.
           </p>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {economics.map((item) => (

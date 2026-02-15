@@ -14,12 +14,12 @@ export default function Join({ locale = "en" }: JoinProps) {
             <div>
               <div className="text-sm font-semibold text-firo-blue">{isEs ? "Accion para inversionistas" : "Investor action"}</div>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
-                {isEs ? "Invierte en la economia robotica." : "Invest in the robotics economy."}
+                {isEs ? "Financia leasing en la economia robotica." : "Fund leasing in the robotics economy."}
               </h2>
               <p className="mt-3 text-firo-muted">
                 {isEs
-                  ? "Unete a la lista de inversionistas para recibir supuestos, escenarios de pagos y detalles de onboarding."
-                  : "Join the investor waitlist to receive scenario assumptions, payout modeling, and onboarding details."}
+                  ? "Unete a la lista para recibir escenarios de leasing, supuestos operativos y detalles de onboarding para inversionistas (contrato minimo de 24 meses)."
+                  : "Join the waitlist to receive leasing scenarios, operating assumptions, and investor onboarding details (24-month minimum contract)."}
               </p>
             </div>
 

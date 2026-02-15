@@ -3,14 +3,14 @@ import Nav from "@/components/Nav";
 import Container from "@/components/ui/Container";
 
 export const metadata: Metadata = {
-  title: "About FIRO | Thesis, team, and operating model",
+  title: "About FIRO | Thesis and leasing operating model",
   description:
-    "Learn what FIRO is, who it serves, the problem it solves, how the model works, and why robotic asset ownership is a timely opportunity.",
+    "Learn what FIRO is, who it serves, the problem it solves, how the leasing model works, and why robotics cashflow is a timely opportunity.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
-    title: "About FIRO | Thesis, team, and operating model",
+    title: "About FIRO | Thesis and leasing operating model",
     description:
       "FIRO overview for investors and technology enthusiasts: market thesis, operations model, risks, and contact.",
     url: "/about",
@@ -35,10 +35,10 @@ export default function AboutPage() {
           <div className="max-w-3xl">
             <div className="text-sm font-semibold text-firo-blue">About FIRO</div>
             <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-6xl">
-              Humanoid robotics, structured for real-world ownership.
+              Humanoid robotics, structured for leasing-backed cashflow.
             </h1>
             <p className="mt-5 text-white/75 md:text-lg">
-              FIRO turns humanoid robots into investable operating assets: clear deployment,
+              FIRO converts humanoid robots into leasing-backed operating assets: clear deployment,
               transparent metrics, and scenario-based investor payouts.
             </p>
           </div>
@@ -58,8 +58,8 @@ export default function AboutPage() {
             <div className="rounded-2xl border border-firo-line bg-firo-bg p-6">
               <h2 className="text-2xl font-semibold tracking-tight">Problem we solve</h2>
               <p className="mt-3 text-firo-muted">
-                Robotics demand is increasing, but ownership and operations are fragmented.
-                FIRO unifies deployment, operator workflows, risk controls, and payout visibility.
+                Robotics demand is increasing, but operating execution and financing are fragmented.
+                FIRO unifies leasing structure, deployment, operator workflows, risk controls, and payout visibility.
               </p>
             </div>
           </div>
@@ -73,9 +73,9 @@ export default function AboutPage() {
           </h2>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             <div className="rounded-2xl border border-firo-line bg-white p-6 shadow-soft">
-              <div className="text-sm font-semibold text-firo-blue">1. Acquire</div>
+              <div className="text-sm font-semibold text-firo-blue">1. Finance lease</div>
               <p className="mt-2 text-firo-muted">
-                Investor enters through FIRO’s managed unit model.
+                Investor enters by funding a monthly lease structure.
               </p>
             </div>
             <div className="rounded-2xl border border-firo-line bg-white p-6 shadow-soft">
@@ -87,7 +87,7 @@ export default function AboutPage() {
             <div className="rounded-2xl border border-firo-line bg-white p-6 shadow-soft">
               <div className="text-sm font-semibold text-firo-blue">3. Track & payout</div>
               <p className="mt-2 text-firo-muted">
-                Utilization, uptime, and economics are tracked to calculate investor payout.
+                Gross, operating net, lease coverage, and payout splits are tracked monthly.
               </p>
             </div>
           </div>
@@ -105,8 +105,8 @@ export default function AboutPage() {
           </p>
           <h3 className="mt-10 text-2xl font-semibold tracking-tight">Thesis / vision</h3>
           <p className="mt-3 max-w-3xl text-firo-muted">
-            Robotics will become core operating infrastructure. Our thesis is that early ownership
-            plus disciplined operations creates durable, transparent, and scalable cashflow.
+            Robotics will become core operating infrastructure. Our thesis is that leasing-backed
+            financing plus disciplined operations creates durable, transparent, and scalable cashflow.
           </p>
         </Container>
       </section>
