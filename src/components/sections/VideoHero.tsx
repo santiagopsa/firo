@@ -114,6 +114,12 @@ export default function VideoHero({ locale = "en" }: VideoHeroProps) {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <a
+                href="/investors"
+                className="rounded-xl bg-white/10 px-5 py-3 text-sm font-semibold text-white hover:bg-white/15"
+              >
+                {isEs ? "Ver resumen para inversionistas" : "View investor brief"}
+              </a>
+              <a
                 href="#roi"
                 className="rounded-xl bg-firo-blue px-5 py-3 text-sm font-semibold shadow-soft hover:opacity-95"
               >

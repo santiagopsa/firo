@@ -22,6 +22,7 @@ export default function Nav({ locale = "en" }: NavProps) {
         </a>
 
         <nav className="hidden items-center gap-7 text-sm text-white/70 md:flex">
+          <a href="/investors" className="hover:text-white">{isEs ? "Inversionistas" : "Investors"}</a>
           <a href="#thesis" className="hover:text-white">{isEs ? "Tesis" : "Thesis"}</a>
           <a href="#roi" className="hover:text-white">ROI</a>
           <a href="#quote" className="hover:text-white">{isEs ? "Contacto" : "Contact"}</a>
