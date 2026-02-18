@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://firoassets.com"),
+  metadataBase: new URL("https://www.firoassets.com"),
   title: {
     default: "FIRO | Robotic Assets, Real Yield",
     template: "%s | FIRO",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "robot ROI",
     "automation",
   ],
-  authors: [{ name: "FIRO", url: "https://firoassets.com" }],
+  authors: [{ name: "FIRO", url: "https://www.firoassets.com" }],
   creator: "FIRO",
   publisher: "FIRO",
   alternates: {

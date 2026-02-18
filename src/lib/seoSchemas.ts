@@ -3,8 +3,8 @@ export function getOrganizationSchema() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "FIRO",
-    url: "https://firoassets.com",
-    logo: "https://firoassets.com/favicon.png",
+    url: "https://www.firoassets.com",
+    logo: "https://www.firoassets.com/favicon.png",
     sameAs: [
       "https://github.com/santiagopsa/firo",
     ],
@@ -16,7 +16,7 @@ export function getWebsiteSchema() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "FIRO",
-    url: "https://firoassets.com",
+    url: "https://www.firoassets.com",
     inLanguage: ["en", "es"],
   };
 }
@@ -55,7 +55,7 @@ export function getArticleSchema(params: {
     mainEntityOfPage: params.url,
     datePublished: params.datePublished,
     dateModified: params.dateModified ?? params.datePublished,
-    image: params.image ?? "https://firoassets.com/assets/hero/dashboard.png",
+    image: params.image ?? "https://www.firoassets.com/assets/hero/dashboard.png",
     inLanguage: params.language ?? "en",
     author: {
       "@type": "Organization",
@@ -66,7 +66,7 @@ export function getArticleSchema(params: {
       name: "FIRO",
       logo: {
         "@type": "ImageObject",
-        url: "https://firoassets.com/favicon.png",
+        url: "https://www.firoassets.com/favicon.png",
       },
     },
   };

@@ -16,7 +16,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://firoassets.com/sitemap.xml",
-    host: "https://firoassets.com",
+    sitemap: "https://www.firoassets.com/sitemap.xml",
+    host: "https://www.firoassets.com",
   };
 }
